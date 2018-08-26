@@ -5,6 +5,12 @@
   "repository": "https://github.com/timurcatakli/react-redux-saga-antd.git",
   "author": "Timur Catakli <timurcatakli@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./build/index.bundle.js",
+    "compile": "NODE_ENV=production webpack --config ./webpack.config.js --progress"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.5",
