@@ -3,7 +3,8 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  // ['babel-polyfill'] is added for generator support plus many others
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.bundle.js',
