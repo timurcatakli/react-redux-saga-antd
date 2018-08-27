@@ -2,28 +2,22 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import App from './App';
 import rootReducer from './reducers';
+import App from './App';
 
-const initialState = {
+const preloadedState = {
   products: [{ name: 'iphone' }],
   user: 'Michael',
 };
 
+/* eslint-disable no-underscore-dangle */
 const store = createStore(
   rootReducer,
-  initialState,
-  window.devToolsExtension && window.devToolsExtension(),
+  preloadedState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
+/* eslint-enable */
 
-console.log(store.getState());
-
-const action = {
-  type: 'CHANGESTATE',
-  payload: 13,
-};
-
-store.dispatch(action);
 render(
   <Provider store={store}>
     <App />
