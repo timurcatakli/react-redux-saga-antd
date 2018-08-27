@@ -1,9 +1,4 @@
-import React from 'react'
-import Blank from './';
+import React from 'react';
+const App = () => <p>App functional component is working</p>;
 
-
-const App = () => {
-  return <p>App functional component is working</p>
-}
-
-export default App
+export default App;

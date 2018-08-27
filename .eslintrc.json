@@ -1,3 +1,7 @@
 {
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+        "import/no-cycle": 0,
+        "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }]
+    }
 }
