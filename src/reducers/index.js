@@ -4,6 +4,7 @@ import productsReducer from './productsReducer';
 import imagesReducer from './imagesReducer';
 import loadingReducer from './loadingReducer';
 import errorReducer from './errorReducer';
+import pageReducer from './pageReducer';
 
 const rootReducer = combineReducers({
   products: productsReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   images: imagesReducer,
   isLoading: loadingReducer,
   error: errorReducer,
+  page: pageReducer,
 });
 
 export default rootReducer;
