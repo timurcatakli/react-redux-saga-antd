@@ -2,31 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadImages } from '../../actions';
 
-const key = '5f96323678d05ff0c4eb264ef184556868e303b32a2db88ecbf15746e6f25e02';
-
 class ImageGrid extends Component {
   componentDidMount() {
     this.props.loadImages();
-    fetch(`https://api.unsplash.com/photos/?client_id=${key}&per_page=28`)
-      .then(res => res.json())
-      .then((images) => {
-        this.setState({
-          images,
-        });
-      });
   }
 
   render() {
     const { images } = this.props;
     return (
-      <div className="content">
-        <section className="grid">
+      <div>
+        <section>
           {images.map(image => (
-            <div key={image.id} className={`item item-${Math.ceil(image.height / image.width)}`}>
-              <img src={image.urls.small} alt={image.user.username} />
-            </div>
+            <img
+              src={image.urls.small}
+              alt={image.user.username}
+              key={image.id}
+              style={{ height: '200px', float: 'left', margin: 20 }}
+            />
           ))}
         </section>
+        <a onClick={this.props.loadImages}>Load Images</a>
       </div>
     );
   }
