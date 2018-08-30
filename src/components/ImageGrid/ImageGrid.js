@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadImages } from '../../actions';
+import './styles.css';
 
 class ImageGrid extends Component {
   componentDidMount() {
@@ -10,8 +11,8 @@ class ImageGrid extends Component {
   render() {
     const { images, error } = this.props;
     return (
-      <div>
-        <section>
+      <div className="content">
+        <section className="grid">
           {images.map(image => (
             <img
               src={image.urls.small}

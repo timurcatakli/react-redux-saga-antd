@@ -20,4 +20,4 @@
 
 const obj = { a: 12 };
 // const objA = { ...obj };
-console.log(obj);
+// console.log(obj);
