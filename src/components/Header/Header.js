@@ -1,4 +1,6 @@
 import React from 'react';
-const Header = () => <header>What the Splash!</header>;
+import logo from './logo.jpg';
+
+const Header = () => <img src={logo} className="app-logo" alt="logo" />;
 
 export default Header;

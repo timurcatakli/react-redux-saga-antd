@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadImages } from '../../actions';
-import './styles.css';
+import css from './styles.css';
 
 class ImageGrid extends Component {
   componentDidMount() {
@@ -18,11 +18,11 @@ class ImageGrid extends Component {
               src={image.urls.small}
               alt={image.user.username}
               key={image.id}
-              style={{ height: '200px', float: 'left', margin: 20 }}
+              className="thumbnail"
             />
           ))}
         </section>
-        <button onClick={this.props.loadImages}>Load Images</button>
+        <button onClick={this.props.loadImages}>Load More Images</button>
         {error && <div>{JSON.stringify(error)}</div>}
       </div>
     );

@@ -1,14 +1,24 @@
 // inside webpack.config.js
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 
 const modeConfig = env => require(`./webpack-build-utils/webpack.${env}`)(env);
+const presetConfig = require('./webpack-build-utils/loadPresets');
 
-module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
+module.exports = ({ mode = 'production', presets = [] }) => {
+  let presetsList = 'N/A';
+  if (Array.isArray(presets)) {
+    if (presets.length > 0) {
+      presetsList = presets.join(', ');
+    }
+  } else if (presets.length > 0) {
+    presetsList = presets.toUpperCase();
+  }
   console.log('*****************************************');
-  console.log(`Webpack is starting in ${mode.toUpperCase()} Mode`);
+  console.log('Webpack is starting in');
+  console.log(`Mode => ${mode.toUpperCase()}`);
+  console.log(`Presets => ${presetsList}`);
   console.log('*****************************************');
   return webpackMerge(
     {
@@ -27,14 +37,27 @@ module.exports = ({ mode, presets } = { mode: 'production', presets: [] }) => {
       // core concept 3 - loaders & rules
       module: {
         rules: [
-          { test: /\.js$/, use: 'babel-loader' },
-          // css loader puts the css in memory...
-          // style loader creates js module
-          { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+          {
+            test: /\.js$/,
+            use: 'babel-loader',
+          },
+          {
+            test: /\.jpe?g$/,
+            use: [
+              {
+                loader: 'url-loader',
+                options: {
+                  limit: 5000,
+                },
+              },
+            ],
+          },
         ],
       },
-      plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()],
+      // plugins: [new BundleAnalyzerPlugin(), new webpack.ProgressPlugin()],
+      plugins: [new webpack.ProgressPlugin()],
     },
     modeConfig(mode),
+    presetConfig({ mode, presets }),
   );
 };
