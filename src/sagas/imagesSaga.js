@@ -1,9 +1,7 @@
-import {
-  takeEvery, select, call, put,
-} from 'redux-saga/effects';
+import { takeEvery, select, call, put } from 'redux-saga/effects';
 import { fetchImages } from '../api';
 import { IMAGES } from '../constants';
-import { setImages, setError } from '../actions';
+import { setImagesAction, setErrorAction } from '../actions';
 
 const getPage = state => state.page;
 
@@ -12,10 +10,10 @@ function* handleImagesLoadSaga() {
     // get page from the state using select effect
     const page = yield select(getPage);
     const images = yield call(fetchImages, page);
-    yield put(setImages(images));
+    yield put(setImagesAction(images));
   } catch (error) {
     // dispatch error
-    yield put(setError(error.toString()));
+    yield put(setErrorAction(error.toString()));
   }
 }
 
