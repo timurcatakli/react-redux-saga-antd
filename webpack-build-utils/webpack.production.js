@@ -26,7 +26,8 @@ module.exports = () => ({
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(pathsToClean, cleanOptions),
+    // disabled until find a nice solution to index.html
+    // new CleanWebpackPlugin(pathsToClean, cleanOptions),
     new CompressionWebpackPlugin(),
     new MiniCssExtractPlugin(),
   ],
