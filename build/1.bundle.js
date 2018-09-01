@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{414:function(e,n,t){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var o=function(e){return e&&e.__esModule?e:{default:e}}(t(33));n.default=function(){return o.default.createElement("p",null,"LazyLoad functional component is working")}}}]);
