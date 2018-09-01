@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadImages } from '../../actions';
 import css from './styles.css';
-
+// import LazyLoad from './LazyLoad';
+const loadLazyLoadComponent = () => import('./LazyLoad');
 class ImageGrid extends Component {
   componentDidMount() {
     this.props.loadImages();
@@ -22,6 +23,7 @@ class ImageGrid extends Component {
             />
           ))}
         </section>
+        {/* <LazyLoad /> */}
         <button onClick={this.props.loadImages}>Load More Images</button>
         {error && <div>{JSON.stringify(error)}</div>}
       </div>

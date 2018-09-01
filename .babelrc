@@ -1,4 +1,0 @@
-// inside .babelrc
-{
- "presets": ["env", "react"]
-}

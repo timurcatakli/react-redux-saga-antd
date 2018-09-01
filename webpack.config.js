@@ -29,6 +29,8 @@ module.exports = ({ mode = 'production', presets = [] }) => {
       output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js',
+        // `chunkFilename` provides a template for naming code-split bundles (optional)
+        chunkFilename: '[name].bundle.js',
       },
       devServer: {
         contentBase: './build',
