@@ -44,12 +44,12 @@ module.exports = ({ mode = 'production', presets = [] }) => {
             use: 'babel-loader',
           },
           {
-            test: /\.jpe?g$/,
+            test: /\.(jpeg|jpg|eot|svg|png|ttf|woff|woff2)$/,
             use: [
               {
                 loader: 'url-loader',
                 options: {
-                  limit: 5000,
+                  limit: 50,
                 },
               },
             ],
