@@ -23,11 +23,42 @@ const trigger = (
   </span>
 );
 
+const triggerAlerts = (
+  <span>
+    <Icon name="alarm" /> Alerts
+    <Label color="red" style={{ marginLeft: 6 }}>
+      4
+    </Label>
+  </span>
+);
+
 const options = [
   { key: 'user', text: 'Account', icon: 'user' },
   { key: 'settings', text: 'Settings', icon: 'settings' },
   { key: 'sign-out', text: 'Sign Out', icon: 'sign out' },
 ];
+
+const optionsAlerts = [
+  {
+    key: 'today',
+    description: '10 mins ago',
+    value: 'today',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit...',
+  },
+  {
+    key: 'this week',
+    text: 'this week',
+    value: 'this week',
+    content: 'This Week',
+  },
+  {
+    key: 'this month',
+    text: 'this month',
+    value: 'this month',
+    content: 'This Month',
+  },
+];
+
 class TopNav extends Component {
   constructor(props) {
     super(props);
@@ -45,38 +76,31 @@ class TopNav extends Component {
           <Menu.Item header>
             <Image
               size="mini"
-              src="http://react.semantic-ui.com/logo.png"
+              src="https://www.logolynx.com/images/logolynx/f2/f222760c66cf7aab3a64eeb0157646b6.png"
               style={{ marginRight: '1.5em' }}
             />
             CARLSBAD
           </Menu.Item>
           <Menu.Item as="a" position="right">
             <Icon name="mail" /> Messages
-            <Label color="red">8</Label>
+            <Label color="green">8</Label>
           </Menu.Item>
-          <Menu.Item>
-            <Icon name="users" /> Alerts
-            <Label color="teal">4</Label>
+          <Menu.Item as="a">
+            <Dropdown
+              trigger={triggerAlerts}
+              pointing="top right"
+              icon={null}
+              options={optionsAlerts}
+            />
           </Menu.Item>
           <Menu.Item>
             <Dropdown trigger={trigger} pointing="top right" icon={null}>
               <Dropdown.Menu>
-                <Dropdown.Item>
-                  New
-                  <Label circular color="red">
-                    2
-                  </Label>
-                </Dropdown.Item>
-                <Dropdown.Item text="Open..." description="ctrl + o" />
-                <Dropdown.Item text="Save as..." description="ctrl + s" />
-                <Dropdown.Item text="Rename" description="ctrl + r" />
-                <Dropdown.Item text="Make a copy" />
-                <Dropdown.Item icon="folder" text="Move to folder" />
-                <Dropdown.Item icon="trash" text="Move to trash" />
+                <Dropdown.Item text="Settings" />
+                <Dropdown.Item text="Feedback" />
+                <Dropdown.Item text="Help" />
                 <Dropdown.Divider />
-                <Dropdown.Item text="Download As..." />
-                <Dropdown.Item text="Publish To Web" />
-                <Dropdown.Item text="E-mail Collaborators" />
+                <Dropdown.Item icon="log out" text="Log Out" />
               </Dropdown.Menu>
             </Dropdown>
           </Menu.Item>
