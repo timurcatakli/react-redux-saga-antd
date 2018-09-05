@@ -1,89 +1,67 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import {
-  Container,
-  Divider,
-  Dropdown,
-  Grid,
-  Header,
-  Image,
-  List,
-  Menu,
-  Segment,
-  Input,
-  Label,
-  Icon,
-} from 'semantic-ui-react';
-import { ROUTES } from '../../constants';
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 
-class LeftSideNav extends Component {
-  state = {};
+const { Header, Content, Footer, Sider } = Layout;
+const SubMenu = Menu.SubMenu;
+const propTypes = {};
 
-  handleItemClick = (name, url) => {
-    this.setState({ activeItem: name });
+class LeftSideNav extends React.Component {
+  state = {
+    collapsed: false,
+  };
+
+  onCollapse = collapsed => {
+    console.log(collapsed);
+    this.setState({ collapsed });
+  };
+
+  handleItemClick = url => {
     this.props.history.push(url);
   };
 
   render() {
-    const { activeItem } = this.state;
-
+    const { pathname } = this.props.location;
+    const bbb = this.state.collapsed ? '100px' : '220px';
     return (
-      <Menu size="large" vertical fixed="left" style={{ marginTop: 61, paddingTop: 32 }}>
-        <Menu.Item>
-          <Input placeholder="Search..." />
-        </Menu.Item>
-
-        <Menu.Item
-          name="home"
-          active={activeItem === 'home'}
-          onClick={() => this.handleItemClick('home', '/')}
-        >
-          Home
-        </Menu.Item>
-
-        <Menu.Item
-          name="landing"
-          color="red"
-          active={activeItem === 'landing'}
-          onClick={() => this.handleItemClick('landing', '/')}
-        >
-          Landing
-        </Menu.Item>
-
-        <Menu.Item
-          name="signup"
-          active={activeItem === 'signup'}
-          onClick={() => this.handleItemClick('signup', '/signup')}
-        >
-          Sign Up
-        </Menu.Item>
-
-        <Menu.Item
-          name="signin"
-          active={activeItem === 'signin'}
-          onClick={() => this.handleItemClick('signin', '/signin')}
-        >
-          Sign In
-        </Menu.Item>
-
-        <Menu.Item
-          name="account"
-          active={activeItem === 'account'}
-          onClick={() => this.handleItemClick('account', '/account')}
-        >
-          Account
-        </Menu.Item>
-
-        <Dropdown item text="More">
-          <Dropdown.Menu>
-            <Dropdown.Item icon="edit" text="Edit Profile" />
-            <Dropdown.Item icon="globe" text="Choose Language" />
-            <Dropdown.Item icon="settings" text="Account Settings" />
-          </Dropdown.Menu>
-        </Dropdown>
-      </Menu>
+      <Sider
+        collapsible
+        collapsed={this.state.collapsed}
+        onCollapse={this.onCollapse}
+        breakpoint="lg"
+        collapsedWidth="80"
+        className="left-side-nav-sider"
+      >
+        <Menu theme="dark" defaultSelectedKeys={[pathname]} mode="inline">
+          <Menu.Item key="/" onClick={() => this.handleItemClick('/')}>
+            <Icon type="home" />
+            <span>Home</span>
+          </Menu.Item>
+          <Menu.Item key="/signin" onClick={() => this.handleItemClick('/signin')}>
+            <Icon type="build" />
+            <span>Sources</span>
+          </Menu.Item>
+          <Menu.Item key="/account" onClick={() => this.handleItemClick('/account')}>
+            <Icon type="thunderbolt" />
+            <span>Indicators</span>
+          </Menu.Item>
+          <Menu.Item key="/pw-forget" onClick={() => this.handleItemClick('/pw-forget')}>
+            <Icon type="profile" />
+            <span>Cases</span>
+          </Menu.Item>
+          <Menu.Item key="5">
+            <Icon type="layout" />
+            <span>Playbooks</span>
+          </Menu.Item>
+          <Menu.Item key="6">
+            <Icon type="database" />
+            <span>Apps</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>
     );
   }
 }
+
+LeftSideNav.propTypes = propTypes;
 export default withRouter(LeftSideNav);

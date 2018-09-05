@@ -6,7 +6,8 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import rootSaga from './sagas';
 import App from './App';
-import 'semantic-ui-css/semantic.min.css';
+import 'sanitize.css/sanitize.css';
+import 'antd/dist/antd.css';
 
 /* eslint-disable no-underscore-dangle */
 const sagaMiddleware = createSagaMiddleware();

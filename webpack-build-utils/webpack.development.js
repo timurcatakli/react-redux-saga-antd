@@ -1,5 +1,5 @@
 module.exports = () => ({
-  devtool: 'source-map',
+  devtool: 'none',
   output: {
     publicPath: '/',
   },

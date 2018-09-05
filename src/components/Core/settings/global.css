@@ -1,0 +1,65 @@
+/********** Add Your Global CSS Here **********/
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+html h1,
+html h2,
+html h3,
+html h4,
+html h5,
+html h6,
+html a,
+html p,
+html li,
+input,
+textarea,
+span,
+div,
+html,
+body,
+html a {
+  margin-bottom: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+html ul {
+  -webkit-padding-start: 0px;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.app-content {
+  margin-left: 236px;
+  margin-top: 100px;
+  margin-right: 36px;
+  min-height: calc(100vh - 125px);
+}
+
+.app-layout {
+  min-height: 100vh;
+}
+
+.popover-title {
+  color: darkgrey;
+  font-size: small;
+  text-align: center;
+  border-bottom: 1px solid lightgrey;
+}
+
+.popover-body {
+  width: 40%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.box-header {
+  color: darkgrey;
+  font-weight: 300;
+}
