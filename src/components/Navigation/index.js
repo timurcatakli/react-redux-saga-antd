@@ -1,4 +1,4 @@
 import TopNav from './TopNav';
-import LeftSideNav from './LeftSideNav';
+import LeftSideNavContainer from './LeftSideNavContainer';
 
-export { TopNav, LeftSideNav };
+export { TopNav, LeftSideNavContainer };

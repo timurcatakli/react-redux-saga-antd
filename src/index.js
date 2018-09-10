@@ -20,7 +20,6 @@ const store = createStore(
 );
 /* eslint-enable */
 sagaMiddleware.run(rootSaga);
-
 render(
   <Provider store={store}>
     <App />

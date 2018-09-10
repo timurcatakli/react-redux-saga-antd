@@ -33,7 +33,6 @@ html ul {
 }
 
 .app-content {
-  margin-left: 236px;
   margin-top: 100px;
   margin-right: 36px;
   min-height: calc(100vh - 125px);

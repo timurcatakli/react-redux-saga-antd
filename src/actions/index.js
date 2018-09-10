@@ -1,4 +1,4 @@
-import { IMAGES, STATS } from '../constants';
+import { IMAGES, STATS, APP } from '../constants';
 
 // IMAGES ACTIONS
 const loadImagesAction = () => ({
@@ -32,6 +32,11 @@ const setStatsErrorAction = id => ({
   id,
 });
 
+// APP ACTIONS
+const toggleSidebar = () => ({
+  type: APP.TOGGLE_SIDEBAR,
+});
+
 export {
   loadImagesAction,
   setImagesAction,
@@ -39,4 +44,5 @@ export {
   loadStatsAction,
   setStatsAction,
   setStatsErrorAction,
+  toggleSidebar,
 };

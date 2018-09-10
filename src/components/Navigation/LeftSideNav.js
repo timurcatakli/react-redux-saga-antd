@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 
@@ -7,13 +8,8 @@ const SubMenu = Menu.SubMenu;
 const propTypes = {};
 
 class LeftSideNav extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
-  onCollapse = collapsed => {
-    console.log(collapsed);
-    this.setState({ collapsed });
+  onCollapse = () => {
+    this.props.toggleSidebar();
   };
 
   handleItemClick = url => {
@@ -22,11 +18,11 @@ class LeftSideNav extends React.Component {
 
   render() {
     const { pathname } = this.props.location;
-    const bbb = this.state.collapsed ? '100px' : '220px';
+    const { sidebarCollapsed } = this.props.app;
     return (
       <Sider
         collapsible
-        collapsed={this.state.collapsed}
+        collapsed={sidebarCollapsed}
         onCollapse={this.onCollapse}
         breakpoint="lg"
         collapsedWidth="80"

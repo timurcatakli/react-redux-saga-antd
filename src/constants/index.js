@@ -18,3 +18,7 @@ export const STATS = {
   LOAD_SUCCESS: 'STATS_LOAD_SUCCESS',
   LOAD_FAIL: 'STATS_LOAD_FAIL',
 };
+
+export const APP = {
+  TOGGLE_SIDEBAR: 'APP_TOGGLE_SIDEBAR',
+};
